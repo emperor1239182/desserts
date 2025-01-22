@@ -1,0 +1,31 @@
+
+html{
+    font-family: 'Red Hat Text', sans-serif;
+}
+$weight: bold;
+$font: 9px;
+$color: grey;
+$priceColor: hsl(14, 86%, 42%);
+
+.container{
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    gap: 20px;
+}
+.dessert p:nth-child(4){
+    color: $priceColor;
+    font-size: $font;
+    font-weight: $weight;
+}
+.dessert p:nth-child(2){
+    font-size: 11px;
+    color: $color;
+}
+.dessert p:nth-child(3){
+    font-size: $font;
+    font-weight: $weight;
+}
+img{
+    border-radius: 8px;
+    width: 150px;
+}
