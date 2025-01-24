@@ -1,16 +1,18 @@
-
-// Import necessary modules
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { NodePackageImporter } from 'sass';
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+
   css: {
     preprocessorOptions: {
       scss: {
-        
-      }
-    }
-  }
+        api: 'modern',
+        importer: new NodePackageImporter(),
+      },
+    },
+  },
 });
+
 

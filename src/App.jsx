@@ -7,7 +7,7 @@ function App() {
     "image": {
             "thumbnail": ".src/assets/images/image-waffle-thumbnail.jpg",
             "mobile": "./assets/images/image-waffle-mobile.jpg",
-            "tablet": "./assets/images/image-waffle-tablet.jpg",
+            "tablet": "s./assets/images/image-waffle-tablet.jpg",
             "desktop": "src/assets/images/image-waffle-desktop.jpg"
        },
        "name": "Waffle with Berries",
