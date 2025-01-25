@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { useContext } from 'react';
 import './App.scss'
+import Cart from './Cart'
 
 function App() {
   const [cartCount, setCount] = useState(0);
+  const createContext = useContext[cartCount]
   const waffles = {
     "image": {
             "thumbnail": ".src/assets/images/image-waffle-thumbnail.jpg",
@@ -109,64 +112,92 @@ const vanillaPannaCotta = {
   return (
     <>
      <div className='container'>
+     <Cart/>
      <h1 className='topic'>Desserts</h1>
         <div className='dessert'>
+        <span style={{position: 'relative'}}>
           <img src={waffles.image.desktop}/>
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{waffles.category}</p>
           <p>{waffles.name}</p>
           <p>${waffles.price}</p>
         </div>
         <div className='dessert'>
+        <span style={{position: 'relative'}}>
           <img src={vanillaBean.image.desktop}/>
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{vanillaBean.category}</p>
           <p>{vanillaBean.name}</p>
           <p>${vanillaBean.price}</p>
         </div>
         <div className='dessert'>
+        <span style={{position: 'relative'}}>
           <img src={macaronMix.image.desktop}/>
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{macaronMix.category}</p>
           <p>{macaronMix.name}</p>
           <p>${macaronMix.price}</p>
         </div>
-        <div className='dessert'>
+        <div className='dessert tira'>
+        <span style={{position: 'relative'}}>
           <img src={tiramisu.image.desktop}/>
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{tiramisu.category}</p>
           <p>{tiramisu.name}</p>
           <p>${tiramisu.price}</p>
         </div>
         <div className='dessert'>
-          <img src={pistachio.image.desktop}/>
+        <span style={{position: 'relative'}}>
+          <img src={pistachio.image.desktop}/><button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+
+          </span>
           <p>{pistachio.category}</p>
           <p>{pistachio.name}</p>
           <p>${pistachio.price}</p>
         </div>
         <div className='dessert'>
+        <span style={{position: 'relative'}}>
           <img src={lemon.image.desktop}/>
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{lemon.category}</p>
           <p>{lemon.name}</p>
           <p>${lemon.price}</p>
         </div>
-        <div className='dessert'>
+        <div className='dessert velvet'>
+        <span style={{position: 'relative'}}>
           <img src={redVelvetCake.image.desktop}/>
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{redVelvetCake.category}</p>
           <p>{redVelvetCake.name}</p>
           <p>${redVelvetCake.price}</p>
         </div>
         <div className='dessert'>
+        <span style={{position: 'relative'}}>
           <img src={saltedBrownie.image.desktop}/>
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{saltedBrownie.category}</p>
           <p>{saltedBrownie.name}</p>
           <p>${saltedBrownie.price}</p>
         </div>
         <div className='dessert'>
-          <img src={vanillaPannaCotta.image.desktop}/>
+          <span style={{position: 'relative'}}>
+          <img src={vanillaPannaCotta.image.desktop}/> 
+          <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clipPath="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+          </span>
           <p>{vanillaPannaCotta.category}</p>
           <p>{vanillaPannaCotta.name}</p>
           <p>${vanillaPannaCotta.price}</p>
         </div>
-
      </div>
-     <button onClick={()=> setCount((c)=> c + 1)} className='add'><svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" fill="none" viewBox="0 0 21 20"><g fill="#C73B0F" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>Add to cart</button>
+     
+     {cartCount}
     </>
   )
 }
