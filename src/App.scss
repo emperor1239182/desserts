@@ -10,10 +10,13 @@ $priceColor: hsl(14, 86%, 42%);
 
 .container{
     display: grid;
-    grid-template-columns: 150px 150px 150px ;
+    grid-template-columns: 150px 150px 150px;
     gap: 10px;
+    padding: 10px;
     .topic{
-    grid-row: 1;
+    font-size: large;
+    font-weight: bold;
+    
     }
     img{
         border-radius: 8px;
@@ -44,7 +47,7 @@ $priceColor: hsl(14, 86%, 42%);
     text-align: center;
     padding: 0 10px;
     position: absolute;
-    bottom: -10px;
+    bottom: -5px;
     left: 20%;
     right: 20%;
 }
@@ -53,16 +56,20 @@ $priceColor: hsl(14, 86%, 42%);
     background-color: hsl(20, 50%, 98%);
     width: 200px;
     border-radius: 4px;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
-    grid-column: 4;
+    grid-area: 2 / 4 / span 1 ;
+    margin-top: -30px;
+    height: 120px;
+    .appear{
+        font-size: $font;
+    font-weight: $weight;
+    color: $color;
+    }
 }
-.appear{
-    font-size: $font;
-font-weight: $weight;
-color: $color;
-}
-.tira, .velvet{
-    grid-column: 1 ;
+
+.tira, .velvet, .waffles{
+    grid-column: 1;
 
 }
+
