@@ -1,11 +1,8 @@
-import { useState} from 'react'
 import './App.scss'
 import Cart from './Cart'
-import CartCount from './Cartcount';
 import CounterButton from './Add To Cart';
 
 function App() {
-  const [cartCount, setCount] = useState(0);
   const waffles = {
     "image": {
             "thumbnail": ".src/assets/images/image-waffle-thumbnail.jpg",
@@ -108,20 +105,14 @@ const vanillaPannaCotta = {
   "price": 6.50
 };
 
-const handleClick = ()=>{
-  setIsClciked((prev) => !prev);
-  setCount((c)=> c + 1)
-}
-const handleCount = ()=>{
-  setItemCount((c)=> c + 1)
-}
+
 
   return (
     <>
      <div className='container'>
-     <CartCount.Provider value={cartCount}>
+     
     <Cart/>
-    </CartCount.Provider>
+    
     <span className='topic'>Desserts</span>
         <div className='dessert waffles'>
         <span style={{position: 'relative'}}>

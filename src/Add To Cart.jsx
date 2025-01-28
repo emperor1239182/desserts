@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CartCount from './Cartcount';
 
 const CounterButton = () => {
   const [itemCount, setItemCount] = useState(0);
@@ -13,9 +14,15 @@ const CounterButton = () => {
         alignItems: "center",
         justifyContent: "center",
         gap: "0.5rem", // Spacing between elements
-        backgroundColor: "hsl(14, 86%, 42%)",
+        backgroundColor:   itemCount > 0 ? "hsl(14, 86%, 42%)" : "#fff",
         borderRadius: '10px', 
-        width: "70%",
+        width: "50%",
+        position: "absolute",
+        bottom: "-8px",
+        left: "20%",
+        right: "20%",
+        padding: " 0 8px"
+        
       }}
     >
       {/* Decrement Button */}
@@ -23,10 +30,10 @@ const CounterButton = () => {
         <button
           onClick={handleDecrement}
           style={{
-            width: "32px",
-            height: "32px",
+            width: "20px",
+            height: "20px",
             borderRadius: "50%",
-            backgroundColor: "#F97316", // Matches the orange theme
+            backgroundColor: "transparent", 
             border: "none",
             display: "flex",
             alignItems: "center",
@@ -51,14 +58,15 @@ const CounterButton = () => {
       <span
       
         style={{
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: itemCount > 0 ? "#000" : "#9CA3AF",
+          fontSize: '9px',
+          fontWeight: 'small',
+          color: itemCount > 0 ? "#fff" : "#000",
+          
         }}
       >
         { itemCount > 0 ? itemCount : <span onClick={handleIncrement}>
       <svg xmlns="http://www.w3.org/2000/svg" 
-width="21"
+width="10"
 height="20" 
 fill="none" 
 viewBox="0 0 21 20">
@@ -78,11 +86,11 @@ Add to cart
       <button
         onClick={handleIncrement}
         style={{
-          width: "16px",
-          height: "16px",
+          width: "20px",
+          height: "20px",
           borderRadius: "50%",
-           // Matches the orange theme
-          border: "1px thin #fff",
+          border: "none",
+          backgroundColor: "transparent",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -92,8 +100,8 @@ Add to cart
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
+          width="15"
+          height="15"
           fill="none"
           viewBox="0 0 10 10"
         >
