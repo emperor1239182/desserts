@@ -8,6 +8,7 @@ const CounterButton = () => {
   const handleDecrement = () => setItemCount((prev) => Math.max(prev - 1, 0));
 
   return (
+    <CartCount.Provider value={itemCount}>
     <div
       style={{
         display: "flex",
@@ -113,6 +114,7 @@ Add to cart
       </button>
       )}
     </div>
+    </CartCount.Provider>
   );
 };
 
