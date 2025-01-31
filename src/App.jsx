@@ -5,7 +5,7 @@ import CounterButton from './Add To Cart';
 function App() {
   const waffles = {
     "image": {
-            "thumbnail": ".src/assets/images/image-waffle-thumbnail.jpg",
+            "thumbnail": "./assets/images/image-waffle-thumbnail.jpg",
             "mobile": "./assets/images/image-waffle-mobile.jpg",
             "tablet": "s./assets/images/image-waffle-tablet.jpg",
             "desktop": "src/assets/images/image-waffle-desktop.jpg"
@@ -117,7 +117,7 @@ const vanillaPannaCotta = {
         <div className='dessert waffles'>
         <span style={{position: 'relative'}}>
           <img src={waffles.image.desktop}/>
-          <CounterButton/>
+          <CounterButton />
           </span>
           <p>{waffles.category}</p>
           <p>{waffles.name}</p>
@@ -126,7 +126,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={vanillaBean.image.desktop}/>
-          <CounterButton/>
+          <CounterButton itemName={vanillaBean.name}/>
           </span>
           <p>{vanillaBean.category}</p>
           <p>{vanillaBean.name}</p>
@@ -135,7 +135,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={macaronMix.image.desktop}/>
-          <CounterButton/>
+          <CounterButton itemName={macaronMix.name}/>
           </span>
           <p>{macaronMix.category}</p>
           <p>{macaronMix.name}</p>
@@ -144,7 +144,7 @@ const vanillaPannaCotta = {
         <div className='dessert tira'>
         <span style={{position: 'relative'}}>
           <img src={tiramisu.image.desktop}/>
-          <CounterButton/>
+          <CounterButton itemName={tiramisu.name}/>
           </span>
           <p>{tiramisu.category}</p>
           <p>{tiramisu.name}</p>
@@ -153,7 +153,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={pistachio.image.desktop}/>
-          <CounterButton/>
+          <CounterButton itemName={pistachio.name}/>
           </span>
           <p>{pistachio.category}</p>
           <p>{pistachio.name}</p>
@@ -162,7 +162,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={lemon.image.desktop}/>
-          <CounterButton/>
+          <CounterButton itemName={lemon.name}/>
           </span>
           <p>{lemon.category}</p>
           <p>{lemon.name}</p>
@@ -171,7 +171,7 @@ const vanillaPannaCotta = {
         <div className='dessert velvet'>
         <span style={{position: 'relative'}}>
           <img src={redVelvetCake.image.desktop}/>
-          <CounterButton/>
+          <CounterButton itemName={redVelvetCake.name}/>
           </span>
           <p>{redVelvetCake.category}</p>
           <p>{redVelvetCake.name}</p>
@@ -180,7 +180,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={saltedBrownie.image.desktop}/>
-          <CounterButton/>
+          <CounterButton itemName={saltedBrownie.name}/>
           </span>
           <p>{saltedBrownie.category}</p>
           <p>{saltedBrownie.name}</p>
@@ -189,7 +189,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
           <span style={{position: 'relative'}}>
           <img src={vanillaPannaCotta.image.desktop}/> 
-          <CounterButton/>
+          <CounterButton itemName={vanillaPannaCotta.name}/>
           </span>
           <p>{vanillaPannaCotta.category}</p>
           <p>{vanillaPannaCotta.name}</p>
