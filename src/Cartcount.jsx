@@ -8,7 +8,7 @@ export const CartCount = createContext();
 export const CartProvider = ({ children }) => {
   
   const [cart, setCart] = useLocalStorage('cartCount', {});
-  const [dessert, setDessert] = useLocalStorage('cart', []);
+  const [dessert, setDessert] = useState( []);
 
  
   const handleIncrement = (id) => {

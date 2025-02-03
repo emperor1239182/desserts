@@ -207,6 +207,26 @@ const {addToCart} = useContext(CartCount);
           <p>{vanillaPannaCotta.name}</p>
           <p>${vanillaPannaCotta.price}</p>
         </div>
+
+        <div className='dessert'>
+          <span style={{position: 'relative'}}>
+          <img src={vanillaPannaCotta.image.desktop}/> 
+          <CounterButton id={vanillaPannaCotta.id} add={() => addToCart(vanillaPannaCotta.name)}/>
+          </span>
+          <p>{vanillaPannaCotta.category}</p>
+          <p>{vanillaPannaCotta.name}</p>
+          <p>${vanillaPannaCotta.price}</p>
+        </div>
+
+        <div className='dessert'>
+          <span style={{position: 'relative'}}>
+          <img src={vanillaPannaCotta.image.desktop}/> 
+          <CounterButton id={vanillaPannaCotta.id} add={() => addToCart(vanillaPannaCotta.name)}/>
+          </span>
+          <p>{vanillaPannaCotta.category}</p>
+          <p>{vanillaPannaCotta.name}</p>
+          <p>${vanillaPannaCotta.price}</p>
+        </div>
      </div>
     </>
   )

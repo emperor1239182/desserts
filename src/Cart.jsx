@@ -6,7 +6,14 @@ const Cart = ()=>{
         display: dessert.length > 0 ? 'none' : ''
     }
     const Checkout ={
-        display: dessert.length === 0 ? 'none' : ''
+        display: dessert.length > 0 ? 'block' : 'none',
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
+        borderRadius: '10px',
+        textAlign: 'center',
+        width: '100%',
+        padding: '6px',
     }
     return (
     <>
@@ -35,6 +42,7 @@ const Cart = ()=>{
     )
     }
     <button style={Checkout}>Checkout</button>
+    
     </div>
     </>
     )
