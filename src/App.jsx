@@ -1,9 +1,12 @@
 import './App.scss'
 import Cart from './Cart'
 import CounterButton from './Add To Cart';
+import { useContext } from 'react';
+import { CartCount } from './Cartcount';
 
 function App() {
   const waffles = {
+    id: 1,
     "image": {
             "thumbnail": "./assets/images/image-waffle-thumbnail.jpg",
             "mobile": "./assets/images/image-waffle-mobile.jpg",
@@ -16,6 +19,7 @@ function App() {
   };
 
   const vanillaBean = {
+    id: 2,
       "image": {
           "thumbnail": "./assets/images/image-creme-brulee-thumbnail.jpg",
           "mobile": "./assets/images/image-creme-brulee-mobile.jpg",
@@ -28,6 +32,7 @@ function App() {
    
   };
   const macaronMix = {
+    id: 3,
     "image": {
         "thumbnail": "./assets/images/image-macaron-thumbnail.jpg",
         "mobile": "./assets/images/image-macaron-mobile.jpg",
@@ -39,6 +44,7 @@ function App() {
     "price": 8.00
  };
  const tiramisu = {
+  id: 4,
   "image": {
       "thumbnail": "./assets/images/image-tiramisu-thumbnail.jpg",
       "mobile": "./assets/images/image-tiramisu-mobile.jpg",
@@ -50,6 +56,7 @@ function App() {
   "price": 5.50
 };
 const pistachio = {
+  id: 5,
   "image": {
       "thumbnail": "./assets/images/image-baklava-thumbnail.jpg",
       "mobile": "./assets/images/image-baklava-mobile.jpg",
@@ -61,6 +68,7 @@ const pistachio = {
   "price": 4.00
 };
 const lemon = {
+  id: 6,
   "image": {
       "thumbnail": "./assets/images/image-meringue-thumbnail.jpg",
       "mobile": "./assets/images/image-meringue-mobile.jpg",
@@ -72,6 +80,7 @@ const lemon = {
   "price": 5.00
 };
 const redVelvetCake = {
+  id: 7,
   "image": {
       "thumbnail": "./assets/images/image-cake-thumbnail.jpg",
       "mobile": "./assets/images/image-cake-mobile.jpg",
@@ -83,6 +92,7 @@ const redVelvetCake = {
   "price": 4.50
 };
 const saltedBrownie = {
+  id: 8,
   "image": {
       "thumbnail": "./assets/images/image-brownie-thumbnail.jpg",
       "mobile": "./assets/images/image-brownie-mobile.jpg",
@@ -94,6 +104,7 @@ const saltedBrownie = {
   "price": 4.50
 };
 const vanillaPannaCotta = {
+  id: 9,
   "image": {
       "thumbnail": "./assets/images/image-panna-cotta-thumbnail.jpg",
       "mobile": "./assets/images/image-panna-cotta-mobile.jpg",
@@ -105,7 +116,7 @@ const vanillaPannaCotta = {
   "price": 6.50
 };
 
-
+const {addToCart} = useContext(CartCount);
 
   return (
     <>
@@ -117,7 +128,8 @@ const vanillaPannaCotta = {
         <div className='dessert waffles'>
         <span style={{position: 'relative'}}>
           <img src={waffles.image.desktop}/>
-          <CounterButton />
+          <CounterButton id={waffles.id} add={() => addToCart(waffles.name)} />
+
           </span>
           <p>{waffles.category}</p>
           <p>{waffles.name}</p>
@@ -126,7 +138,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={vanillaBean.image.desktop}/>
-          <CounterButton itemName={vanillaBean.name}/>
+          <CounterButton id={vanillaBean.id} add={() => addToCart(vanillaBean.name)}/>
           </span>
           <p>{vanillaBean.category}</p>
           <p>{vanillaBean.name}</p>
@@ -135,7 +147,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={macaronMix.image.desktop}/>
-          <CounterButton itemName={macaronMix.name}/>
+          <CounterButton id={macaronMix.id} add={() => addToCart(macaronMix.name)}/>
           </span>
           <p>{macaronMix.category}</p>
           <p>{macaronMix.name}</p>
@@ -144,7 +156,7 @@ const vanillaPannaCotta = {
         <div className='dessert tira'>
         <span style={{position: 'relative'}}>
           <img src={tiramisu.image.desktop}/>
-          <CounterButton itemName={tiramisu.name}/>
+          <CounterButton id={tiramisu.id} add={() => addToCart(tiramisu.name)}/>
           </span>
           <p>{tiramisu.category}</p>
           <p>{tiramisu.name}</p>
@@ -153,7 +165,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={pistachio.image.desktop}/>
-          <CounterButton itemName={pistachio.name}/>
+          <CounterButton id={pistachio.id} add={() => addToCart(pistachio.name)}/>
           </span>
           <p>{pistachio.category}</p>
           <p>{pistachio.name}</p>
@@ -162,7 +174,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={lemon.image.desktop}/>
-          <CounterButton itemName={lemon.name}/>
+          <CounterButton id={lemon.id} add={() => addToCart(lemon.name)}/>
           </span>
           <p>{lemon.category}</p>
           <p>{lemon.name}</p>
@@ -171,7 +183,7 @@ const vanillaPannaCotta = {
         <div className='dessert velvet'>
         <span style={{position: 'relative'}}>
           <img src={redVelvetCake.image.desktop}/>
-          <CounterButton itemName={redVelvetCake.name}/>
+          <CounterButton id={redVelvetCake.id} add={() => addToCart(redVelvetCake.name)}/>
           </span>
           <p>{redVelvetCake.category}</p>
           <p>{redVelvetCake.name}</p>
@@ -180,7 +192,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
         <span style={{position: 'relative'}}>
           <img src={saltedBrownie.image.desktop}/>
-          <CounterButton itemName={saltedBrownie.name}/>
+          <CounterButton id={saltedBrownie.id} add={() => addToCart(saltedBrownie.name)}/>
           </span>
           <p>{saltedBrownie.category}</p>
           <p>{saltedBrownie.name}</p>
@@ -189,7 +201,7 @@ const vanillaPannaCotta = {
         <div className='dessert'>
           <span style={{position: 'relative'}}>
           <img src={vanillaPannaCotta.image.desktop}/> 
-          <CounterButton itemName={vanillaPannaCotta.name}/>
+          <CounterButton id={vanillaPannaCotta.id} add={() => addToCart(vanillaPannaCotta.name)}/>
           </span>
           <p>{vanillaPannaCotta.category}</p>
           <p>{vanillaPannaCotta.name}</p>

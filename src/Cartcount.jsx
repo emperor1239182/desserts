@@ -1,16 +1,36 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types"; // ✅ Import PropTypes
+import { useLocalStorage } from "usehooks-ts";
+
 
 export const CartCount = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [itemCount, setItemCount] = useState(0);
+  
+  const [cart, setCart] = useLocalStorage('cartCount', {});
+  const [dessert, setDessert] = useLocalStorage('cart', []);
 
-  const handleIncrement = () => setItemCount((prev) => prev + 1);
-  const handleDecrement = () => setItemCount((prev) => Math.max(prev - 1, 0));
+ 
+  const handleIncrement = (id) => {
+    setCart((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 0) + 1, // ✅ Update count per item
+      }));
+    };
+  
+    const handleDecrement = (id) => {
+      setCart((prev) => ({
+        ...prev,
+        [id]: Math.max((prev[id] || 0) - 1, 0),
+      }));
+    };
+
+  const addToCart = (items)=>{
+    setDessert((prev) => (prev.includes(items) ? prev : [...prev, items]));
+  }
 
   return (
-    <CartCount.Provider value={{ itemCount, handleIncrement, handleDecrement }}>
+    <CartCount.Provider value={{ cart, handleIncrement, handleDecrement, addToCart, dessert }}>
       {children}
     </CartCount.Provider>
   );
@@ -18,5 +38,5 @@ export const CartProvider = ({ children }) => {
 
 // ✅ Fix ESLint warning
 CartProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };

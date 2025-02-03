@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { CartCount } from './Cartcount'; // ✅ Correct import
 
-const CounterButton = () => {
-  const { itemCount, handleIncrement, handleDecrement } = useContext(CartCount);
-
+const CounterButton = ({add, id}) => {
+  const { cart, handleIncrement, handleDecrement, addToCart} = useContext(CartCount);
+  const itemCount = cart[id] || 0; 
   return (
-    <div
+    <div onClick={add}
       style={{
         display: "flex",
         alignItems: "center",
@@ -24,7 +24,7 @@ const CounterButton = () => {
       {/* Decrement Button */}
       {itemCount > 0 && (
         <button
-          onClick={handleDecrement}
+          onClick={() => handleDecrement(id)}
           style={{
             width: "20px",
             height: "20px",
@@ -52,7 +52,12 @@ const CounterButton = () => {
           color: itemCount > 0 ? "#fff" : "#000",
         }}
       >
-        {itemCount > 0 ? itemCount : <span onClick={handleIncrement}>
+        {itemCount > 0 ? itemCount : <span onClick={() => { 
+          {add}
+      handleIncrement(id); 
+      addToCart(); 
+       // Pass the correct item when calling addToCart
+  }}>
       <svg xmlns="http://www.w3.org/2000/svg" 
 width="10"
 height="20" 
@@ -73,7 +78,7 @@ Add to cart
       {/* Increment Button */}
       {itemCount > 0 && (
         <button
-          onClick={handleIncrement}
+          onClick={() => handleIncrement(id)}
           style={{
             width: "20px",
             height: "20px",
