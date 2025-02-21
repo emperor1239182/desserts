@@ -10,13 +10,14 @@ $priceColor: hsl(14, 86%, 42%);
 
 .container{
     display: grid;
-    grid-template-columns: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px 150px;
     gap: 10px;
     padding: 10px;
     .topic{
     font-size: large;
     font-weight: bold;
-    
+    grid-column:  1 / 4;
+    align-self: self-start;
     }
     img{
         border-radius: 8px;
@@ -29,7 +30,9 @@ $priceColor: hsl(14, 86%, 42%);
         height: auto;
         border-radius: 4px;
         text-align: center;
-        grid-area: 2 / 4 ;
+        grid-row: 1 / 4;
+        grid-column: 4;
+        align-self: self-start;
         margin-top: -30px;
         padding: 8px;
     
@@ -41,7 +44,7 @@ $priceColor: hsl(14, 86%, 42%);
     }
 }
 
-.dessert p:nth-child(4){
+.dessert p:nth-child(3){
     color: $priceColor;
     font-size: $font;
     font-weight: $weight;
@@ -70,10 +73,6 @@ $priceColor: hsl(14, 86%, 42%);
 }
 
 
-.tira, .velvet, .waffles{
-    grid-column: 1;
-
-}
 
 .cartName{
     font-size: $font;
