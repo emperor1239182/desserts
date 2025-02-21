@@ -22,6 +22,23 @@ $priceColor: hsl(14, 86%, 42%);
         border-radius: 8px;
         width: 150px;
     }
+    .cart{
+        position: relative;
+        background-color: hsl(20, 50%, 98%);
+        width: 200px;
+        height: auto;
+        border-radius: 4px;
+        text-align: center;
+        grid-area: 2 / 4 ;
+        margin-top: -30px;
+        padding: 8px;
+    
+        .appear{
+            font-size: $font;
+        font-weight: $weight;
+        color: $color;
+        }
+    }
 }
 
 .dessert p:nth-child(4){
@@ -51,22 +68,7 @@ $priceColor: hsl(14, 86%, 42%);
     left: 20%;
     right: 20%;
 }
-.cart{
-    position: relative;
-    background-color: hsl(20, 50%, 98%);
-    width: 200px;
-    padding: 10px;
-    border-radius: 4px;
-    text-align: center;
-    grid-area: 2 / 4 / span 1 ;
-    margin-top: -30px;
-    height: auto;
-    .appear{
-        font-size: $font;
-    font-weight: $weight;
-    color: $color;
-    }
-}
+
 
 .tira, .velvet, .waffles{
     grid-column: 1;
@@ -79,4 +81,8 @@ $priceColor: hsl(14, 86%, 42%);
 }
 .cartList{
     position: absolute;
+    
+}
+.divider{
+    border-bottom: 1px thin grey;
 }

@@ -1,42 +1,51 @@
-import { createContext, useState } from "react";
-import PropTypes from "prop-types"; // ✅ Import PropTypes
-import { useLocalStorage } from "usehooks-ts";
+import { createContext, useRef, useState, useContext } from "react";
+export const CartContext = createContext();
 
+export const CartContainer = ({ children })=>{
+    const [cart, setCart] = useState({});
+    const [itemCount, setItemCount] = useState(0);
+    const count = useRef(0);
 
-export const CartCount = createContext();
-
-export const CartProvider = ({ children }) => {
-  
-  const [cart, setCart] = useLocalStorage('cartCount', {});
-  const [dessert, setDessert] = useState( []);
-
- 
-  const handleIncrement = (id) => {
-    setCart((prev) => ({
-      ...prev,
-      [id]: (prev[id] || 0) + 1, // ✅ Update count per item
-      }));
+    const addToCart = (id, image, price, name) => {
+        setCart((prev)=>{
+            const updatedCart = {
+                ...prev,
+                [id]: {
+                    image: image,
+                    price: price,
+                    name: name,
+                    quantity: prev[id] ? prev[id].quantity + 1 : 1
+                }
+            }
+            count.current = Object.values(updatedCart).reduce((total, item) => total + item.quantity, 0);
+            return updatedCart;
+        });
+        setItemCount((c) => {
+            return c + 1;
+        });
     };
-  
-    const handleDecrement = (id) => {
-      setCart((prev) => ({
-        ...prev,
-        [id]: Math.max((prev[id] || 0) - 1, 0),
-      }));
-    };
 
-  const addToCart = (items)=>{
-    setDessert((prev) => (prev.includes(items) ? prev : [...prev, items]));
-  }
-
-  return (
-    <CartCount.Provider value={{ cart, handleIncrement, handleDecrement, addToCart, dessert }}>
-      {children}
-    </CartCount.Provider>
-  );
+const handleIncrement = ()=>{
+    setItemCount((c) => {
+        return c + 1;
+    });
 };
 
-// ✅ Fix ESLint warning
-CartProvider.propTypes = {
-  children: PropTypes.node.isRequired
+const handleDecrement = ()=>{
+    setItemCount((c) => {
+        return c - 1;
+    });
 };
+
+return ( 
+    <>
+    <CartContext.Provider value={{cart, addToCart, itemCount, handleIncrement, handleDecrement}}>
+        {children}
+    </CartContext.Provider>
+    </>
+)
+
+}
+export const useCart = () => {
+    return useContext(CartContext);
+  };

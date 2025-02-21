@@ -7,13 +7,31 @@ html {
   display: grid;
   grid-template-columns: 150px 150px 150px;
   gap: 10px;
+  padding: 10px;
 }
 .container .topic {
-  grid-row: 1;
+  font-size: large;
+  font-weight: bold;
 }
 .container img {
   border-radius: 8px;
   width: 150px;
+}
+.container .cart {
+  position: relative;
+  background-color: hsl(20, 50%, 98%);
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+  text-align: center;
+  grid-area: 2/4;
+  margin-top: -30px;
+  padding: 8px;
+}
+.container .cart .appear {
+  font-size: 9px;
+  font-weight: bold;
+  color: grey;
 }
 
 .dessert p:nth-child(4) {
@@ -39,27 +57,24 @@ html {
   text-align: center;
   padding: 0 10px;
   position: absolute;
-  bottom: -10px;
+  bottom: -5px;
   left: 20%;
   right: 20%;
 }
 
-.cart {
-  position: relative;
-  background-color: hsl(20, 50%, 98%);
-  width: 200px;
-  border-radius: 4px;
-  padding: 8px;
-  text-align: center;
-  grid-column: 4;
+.tira, .velvet, .waffles {
+  grid-column: 1;
 }
 
-.appear {
+.cartName {
   font-size: 9px;
   font-weight: bold;
-  color: grey;
 }
 
-.tira, .velvet {
-  grid-column: 1;
+.cartList {
+  position: absolute;
+}
+
+.divider {
+  border-bottom: 1px thin grey;
 }/*# sourceMappingURL=App.css.map */
