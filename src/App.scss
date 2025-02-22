@@ -26,11 +26,11 @@ $priceColor: hsl(14, 86%, 42%);
     .cart{
         position: relative;
         background-color: hsl(20, 50%, 98%);
-        width: 200px;
-        height: auto;
+        width: 180px;
+        overflow: auto;
         border-radius: 4px;
         text-align: center;
-        grid-row: 1 / 4;
+        grid-row: 1 / 6;
         grid-column: 4;
         align-self: self-start;
         margin-top: -30px;
@@ -41,47 +41,46 @@ $priceColor: hsl(14, 86%, 42%);
         font-weight: $weight;
         color: $color;
         }
+    
     }
 }
 
-.dessert p:nth-child(3){
+.dessert p:nth-child(4){
     color: $priceColor;
     font-size: $font;
     font-weight: $weight;
     
 }
-.dessert p:nth-child(2){
+.dessert p:nth-child(3){
     font-size: 11px;
     color: $color;
 }
-.dessert p:nth-child(3){
+.dessert p:nth-child(2){
     font-size: $font;
     font-weight: $weight;
 }
 
+.imageContainer{
+    position: relative;
+    width: auto;
 
-.add{
-    font-size: $font;
-    border: 1px solid $color;
-    border-radius: 28px;
-    text-align: center;
-    padding: 0 10px;
-    position: absolute;
-    bottom: -5px;
-    left: 20%;
-    right: 20%;
-}
-
-
-
-.cartName{
-    font-size: $font;
-    font-weight: $weight;
-}
-.cartList{
-    position: absolute;
+    .addToCart{
+        
+        border: 1px solid grey;
+        border-radius: 28px;
+        text-align: center;
+        padding: 0 10px;
+        position: absolute;
+        bottom: -5px;
+        left: 20%;
+        right: 20%;
+        display: flex;
+        justify-content: space-between;
+    }
     
 }
-.divider{
-    border-bottom: 1px thin grey;
+
+
+.cartList{
+    border-bottom: 1px solid grey;
 }

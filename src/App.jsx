@@ -14,10 +14,11 @@ const App = ()=>{
         desserts?.map((products)=>{
           return (
             <div key={products.id} className='dessert'>
-              <span className='imageContainer'>
+              <div className='imageContainer'>
               <img src={products.image.desktop} alt={products.name}/>
-              <AddToCart className="add" id={products.id} /> 
-              </span>
+              <AddToCart id={products.id} /> 
+              </div>
+              <p>{products.category}</p>
               <p> {products.name} </p>
               <p>${products.price.toFixed(2)} </p>
                  
