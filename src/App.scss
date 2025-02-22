@@ -33,7 +33,6 @@ $priceColor: hsl(14, 86%, 42%);
         grid-row: 1 / 6;
         grid-column: 4;
         align-self: self-start;
-        margin-top: -30px;
         padding: 8px;
     
         .appear{
@@ -79,8 +78,21 @@ $priceColor: hsl(14, 86%, 42%);
     }
     
 }
-
-
 .cartList{
     border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: space-between;
+    gap: 7px;
+    .remove{
+        font-size: 8px;
+        
+        border-radius: 100%;
+        width: 14px;
+        height: 14px;
+        align-self: center;
+        color: $color;
+        border-color: $color;
+        text-align: center;
+        padding: 2px;
+    }
 }

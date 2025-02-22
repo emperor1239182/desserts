@@ -42,8 +42,16 @@ export const CartContainer = ({ children }) => {
     forceUpdate();
   };
 
+  const removeItem = (id) => {
+    setCart((prev) => {
+      const { [id]: _, ...rest } = prev;
+      return rest;
+    });
+    Counts.current[id] = 0
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, itemCounts: Counts.current, handleIncrement, handleDecrement }}>
+    <CartContext.Provider value={{ cart, addToCart, itemCounts: Counts.current, handleIncrement, handleDecrement, removeItem }}>
       {children}
     </CartContext.Provider>
   );

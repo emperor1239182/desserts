@@ -1,9 +1,11 @@
 import { desserts } from "./Dessert";
 import { useCart } from "./Cartcount";
 export const Cart = ()=>{
-    const {cart} = useCart();
+    const {cart, removeItem} = useCart();
     const cartItems = Object.values(cart);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  
     return (
         <div className="cart">
             <h5 className="cartName" style={{color:'hsl(14, 86%, 42%) ', textAlign:'left'}}>Your Cart({totalItems}) </h5>
@@ -34,11 +36,11 @@ export const Cart = ()=>{
                         <div key={id} className="cartList">
                             <img src={image} alt={name} style={{width:'40px', height:'30px'}} />
                             
-                                <p style={{fontSize:'9px'}}>{name}</p>
+                                <p style={{fontSize:'9px', fontWeight:'bold'}}>{name}</p>
                                 <p style={{fontSize:'9px'}}>${price.toFixed(2)}</p>
-                                <p style={{fontSize:'9px'}}>Quantity: {quantity}</p>
-                                <p style={{fontSize:'9px'}}>Total: {totalPrice} </p>
-
+                                <p style={{fontSize:'9px', color:'hsl(14, 86%, 42%)'}}> {quantity}X</p>
+                                <p style={{fontSize:'9px', fontWeight:'bold'}}>Total: ${totalPrice} </p>
+                                <button className="remove" onClick={()=> removeItem(id)}>X</button>
                         </div>
                     );
                 })
