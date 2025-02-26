@@ -5,13 +5,15 @@ html {
 
 .container {
   display: grid;
-  grid-template-columns: 150px 150px 150px;
+  grid-template-columns: 150px 150px 150px 150px;
   gap: 10px;
   padding: 10px;
 }
 .container .topic {
   font-size: large;
   font-weight: bold;
+  grid-column: 1/4;
+  align-self: self-start;
 }
 .container img {
   border-radius: 8px;
@@ -20,18 +22,32 @@ html {
 .container .cart {
   position: relative;
   background-color: hsl(20, 50%, 98%);
-  width: 200px;
-  height: auto;
+  width: 180px;
+  overflow: auto;
   border-radius: 4px;
   text-align: center;
-  grid-area: 2/4;
-  margin-top: -30px;
+  grid-row: 1/6;
+  grid-column: 4;
+  align-self: self-start;
   padding: 8px;
 }
 .container .cart .appear {
   font-size: 9px;
   font-weight: bold;
   color: grey;
+}
+.container .cart .totalOrders {
+  display: flex;
+  justify-content: space-between;
+}
+.container .cart .confirm {
+  width: 90%;
+  border-radius: 13px;
+  border-color: transparent;
+  background-color: hsl(14, 86%, 42%);
+  color: white;
+  font-size: 9px;
+  padding: 6px;
 }
 
 .dessert p:nth-child(4) {
@@ -40,41 +56,70 @@ html {
   font-weight: bold;
 }
 
-.dessert p:nth-child(2) {
+.dessert p:nth-child(3) {
   font-size: 11px;
   color: grey;
 }
 
-.dessert p:nth-child(3) {
+.dessert p:nth-child(2) {
   font-size: 9px;
   font-weight: bold;
 }
 
-.add {
-  font-size: 9px;
+.imageContainer {
+  position: relative;
+  width: auto;
+}
+
+.addToCart {
+  position: absolute;
+  width: 50%;
+  bottom: -5px;
+  left: 20%;
+  right: 20%;
+  display: flex;
+  justify-content: space-between;
   border: 1px solid grey;
   border-radius: 28px;
   text-align: center;
   padding: 0 10px;
-  position: absolute;
-  bottom: -5px;
-  left: 20%;
-  right: 20%;
-}
-
-.tira, .velvet, .waffles {
-  grid-column: 1;
-}
-
-.cartName {
-  font-size: 9px;
-  font-weight: bold;
 }
 
 .cartList {
-  position: absolute;
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+}
+.cartList .remove {
+  font-size: 8px;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  align-self: center;
+  color: grey;
+  border-color: transparent;
+  text-align: center;
+  padding: 2px;
 }
 
-.divider {
-  border-bottom: 1px thin grey;
+@media only screen and (max-width: 500px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .addToCart {
+    /* Added to override 'position: absolute' */
+    width: 100px;
+    padding: 5px;
+    border: 1px solid grey; /* Changed border color for debugging */
+    background-color: lightgray; /* Added background color for debugging */
+    position: absolute;
+    left: 20px;
+    right: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+  }
 }/*# sourceMappingURL=App.css.map */

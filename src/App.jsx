@@ -2,13 +2,19 @@ import './App.scss'
 import { AddToCart } from './Add To Cart';
 import { desserts } from './Dessert';
 import { Cart } from './Cart';
-
+import {useCart} from './Cartcount'
+import { Orderconfirmation } from './Orderconfirmation';
 
 const App = ()=>{
+  const {orderconfirmation} = useCart();
+  const background ={
+    backdropFilter: orderconfirmation ? 'blur(455px)' : '',
+    zIndex: orderconfirmation ? '-1' : ''
+  }
   return (
     <>
-    <div className='container'>
-    <h1 className='topic'>Dessert</h1>
+    <div className='container' style={background}>
+    <h1 className='topic'>Desserts</h1>
     <Cart/>
       {
         desserts?.map((products)=>{
@@ -25,8 +31,9 @@ const App = ()=>{
             </div>
           );
         })
-      }  
+      } 
     </div>
+    {orderconfirmation && <Orderconfirmation/>}
     </>
   )
 }

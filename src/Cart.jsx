@@ -1,11 +1,12 @@
 import { desserts } from "./Dessert";
 import { useCart } from "./Cartcount";
 export const Cart = ()=>{
-    const {cart, removeItem} = useCart();
+    const {cart, removeItem, handleOrderconfirmation} = useCart();
     const cartItems = Object.values(cart);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
+  const totalOrders = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   
+
     return (
         <div className="cart">
             <h5 className="cartName" style={{color:'hsl(14, 86%, 42%) ', textAlign:'left'}}>Your Cart({totalItems}) </h5>
@@ -32,6 +33,8 @@ export const Cart = ()=>{
                 Object.keys(cart).map((id)=>{
                     const {image, name, price, quantity} = cart[id];
                     const totalPrice =  quantity * price.toFixed(2);
+                    
+                
                     return (
                         <div key={id} className="cartList">
                             <img src={image} alt={name} style={{width:'40px', height:'30px'}} />
@@ -42,9 +45,21 @@ export const Cart = ()=>{
                                 <p style={{fontSize:'9px', fontWeight:'bold'}}>Total: ${totalPrice} </p>
                                 <button className="remove" onClick={()=> removeItem(id)}>X</button>
                         </div>
+                       
                     );
                 })
             }
+            {totalItems > 0 &&
+            <>
+            <div className="totalOrders">
+            <p style={{fontSize: '9px', color: 'grey'}}>Order Total</p>
+            <p style={{fontSize: '14px', fontWeight:'bolder'}}>${totalOrders.toFixed(2)} </p>
+        </div>
+        <button className="confirm" onClick={handleOrderconfirmation}>Confirm Order</button>
+        </>
+            }
+        
+            
         </div>
     );
 }

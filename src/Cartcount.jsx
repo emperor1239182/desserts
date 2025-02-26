@@ -5,6 +5,7 @@ export const CartContext = createContext();
 export const CartContainer = ({ children }) => {
   const [cart, setCart] = useState({});
   const [, setDummyState] = useState(0);
+  const [orderconfirmation, setOrderconfirmation] = useState(false);
   const Counts = useRef({});
 
   const forceUpdate = () => setDummyState((prev) => prev + 1);
@@ -50,8 +51,15 @@ export const CartContainer = ({ children }) => {
     Counts.current[id] = 0
   }
 
+  const handleOrderconfirmation = () => {
+    orderconfirmation === true ? setOrderconfirmation(false) : setOrderconfirmation(true);
+    orderconfirmation === true ? setCart({}) : setCart(cart);
+    orderconfirmation === true ? Counts.current = {} : Counts.current = Counts.current;
+    
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, itemCounts: Counts.current, handleIncrement, handleDecrement, removeItem }}>
+    <CartContext.Provider value={{ cart, addToCart, itemCounts: Counts.current, handleIncrement, handleDecrement, removeItem, handleOrderconfirmation, orderconfirmation }}>
       {children}
     </CartContext.Provider>
   );
