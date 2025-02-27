@@ -102,7 +102,7 @@ export const desserts = [
       "thumbnail": "./assets/images/image-panna-cotta-thumbnail.jpg",
       "mobile": "./assets/images/image-panna-cotta-mobile.jpg",
       "tablet": "./assets/images/image-panna-cotta-tablet.jpg",
-      "desktop": "./public/images/image-panna-cotta-desktop.jpg" 
+      "desktop": "./images/image-panna-cotta-desktop.jpg" 
   },
   "name": "Vanilla Panna Cotta",
   "category": "Panna Cotta",
