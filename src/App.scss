@@ -157,13 +157,14 @@ $priceColor: hsl(14, 86%, 42%);
     display: block;
     left: 25%;
     right: 25%;
-    bottom: 20%;
+    bottom: 50%;
     background-color: hsl(20, 50%, 98%);
     width: 90%;
     max-width: 50%;
     padding: 8px;
     text-align: center;
     animation: fadeIn 0.3s ease-in-out;
+    border-radius: 6px;
 
         .checkmark{
             color: green;

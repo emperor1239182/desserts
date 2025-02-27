@@ -1,8 +1,7 @@
-import { desserts } from "./Dessert";
 import { useCart } from "./Cartcount";
 
 export const Orderconfirmation = ()=>{
-    const {cart, handleOrderconfirmation, orderConfirmation} = useCart();
+    const {cart, handleOrderconfirmation} = useCart();
     const cartItems = Object.values(cart);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalOrders = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);

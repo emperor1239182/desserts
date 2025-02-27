@@ -1,46 +1,52 @@
-import { createContext, useRef, useState, useContext } from "react";
+import { createContext, useState, useContext, useMemo } from "react";
 
 export const CartContext = createContext();
 
 export const CartContainer = ({ children }) => {
   const [cart, setCart] = useState({});
-  const [, setDummyState] = useState(0);
   const [orderconfirmation, setOrderconfirmation] = useState(false);
-  const Counts = useRef({});
-
-  const forceUpdate = () => setDummyState((prev) => prev + 1);
 
   const addToCart = (id, image, price, name) => {
-    setCart((prev) => {
-      const updatedCart = {
-        ...prev,
-        [id]: {
-          image: image,
-          price: price,
-          name: name,
-          quantity: prev[id] ? prev[id].quantity + 1 : 1,
-        },
-      };
-      Counts.current[id] = updatedCart[id].quantity;
-      forceUpdate();
-      return updatedCart;
-    });
+    setCart((prev) => ({
+      ...prev,
+      [id]: {
+        image: image,
+        price: price,
+        name: name,
+        quantity: prev[id] ? prev[id].quantity + 1 : 1,
+      },
+    }));
   };
 
   const handleIncrement = (id) => {
-    Counts.current[id] = (Counts.current[id] || 0) + 1;
-    forceUpdate();
+    setCart((prev) => {
+      if (!prev[id]) return prev;
+      return {
+        ...prev,
+        [id]: {
+          ...prev[id],
+          quantity: prev[id].quantity + 1,
+        },
+      };
+    });
   };
 
   const handleDecrement = (id) => {
-    Counts.current[id] = Math.max((Counts.current[id] || 1) - 1, 0);
-    if (Counts.current[id] === 0) {
-      setCart((prev) => {
+    setCart((prev) => {
+      if (!prev[id]) return prev;
+      const newQuantity = prev[id].quantity - 1;
+      if (newQuantity === 0) {
         const { [id]: _, ...rest } = prev;
         return rest;
-      });
-    }
-    forceUpdate();
+      }
+      return {
+        ...prev,
+        [id]: {
+          ...prev[id],
+          quantity: newQuantity,
+        },
+      };
+    });
   };
 
   const removeItem = (id) => {
@@ -48,18 +54,25 @@ export const CartContainer = ({ children }) => {
       const { [id]: _, ...rest } = prev;
       return rest;
     });
-    Counts.current[id] = 0
-  }
-
-  const handleOrderconfirmation = () => {
-    orderconfirmation === true ? setOrderconfirmation(false) : setOrderconfirmation(true);
-    orderconfirmation === true ? setCart({}) : setCart(cart);
-    orderconfirmation === true ? Counts.current = {} : Counts.current = Counts.current;
-    
   };
 
+  const handleOrderconfirmation = () => {
+    setOrderconfirmation((prev) => !prev);
+    if (orderconfirmation === true) {
+      setCart({});
+    }
+  };
+
+  const itemCounts = useMemo(() => {
+    const counts = {};
+    Object.keys(cart).forEach(id => {
+      counts[id] = cart[id].quantity;
+    });
+    return counts;
+  }, [cart]);
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, itemCounts: Counts.current, handleIncrement, handleDecrement, removeItem, handleOrderconfirmation, orderconfirmation }}>
+    <CartContext.Provider value={{ cart, addToCart, handleIncrement, handleDecrement, itemCounts, removeItem, handleOrderconfirmation, orderconfirmation }}>
       {children}
     </CartContext.Provider>
   );
